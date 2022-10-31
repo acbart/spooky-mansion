@@ -5,271 +5,65 @@
 Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
-  console.error
-    Warning: An update to Terminal inside a test was not wrapped in act(...).
-    
-    When testing, code that causes React state updates should be wrapped into act(...):
-    
-    act(() => {
-      /* fire events that update state */
-    });
-    /* assert on the output */
-    
-    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
-        at Terminal (/home/runner/work/spooky-mansion/spooky-mansion/node_modules/crt-terminal/dist/cjs/index.js:1390:24)
-        at MainTerminal (/home/runner/work/spooky-mansion/spooky-mansion/src/components/Terminal.tsx:9:5)
-        at div
-        at /home/runner/work/spooky-mansion/spooky-mansion/node_modules/react-bootstrap/cjs/Col.js:72:8
-        at div
-        at /home/runner/work/spooky-mansion/spooky-mansion/node_modules/react-bootstrap/cjs/Row.js:22:3
-        at div
-        at /home/runner/work/spooky-mansion/spooky-mansion/node_modules/react-bootstrap/cjs/Container.js:24:3
-        at div
-        at MainArea (/home/runner/work/spooky-mansion/spooky-mansion/src/components/MainArea.tsx:9:29)
-        at div
-        at App
-
-      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
-      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
-      at warnIfNotCurrentlyActingUpdatesInDEV (node_modules/react-dom/cjs/react-dom.development.js:24064:9)
-      at dispatchAction (node_modules/react-dom/cjs/react-dom.development.js:16135:9)
-      at dequeue (node_modules/crt-terminal/dist/cjs/index.js:787:9)
-      at node_modules/crt-terminal/dist/cjs/index.js:1075:21
-      at step (node_modules/crt-terminal/dist/cjs/index.js:178:23)
-
-  console.error
-    Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.
-        at Terminal (/home/runner/work/spooky-mansion/spooky-mansion/node_modules/crt-terminal/dist/cjs/index.js:1390:24)
-        at MainTerminal (/home/runner/work/spooky-mansion/spooky-mansion/src/components/Terminal.tsx:9:5)
-        at div
-        at /home/runner/work/spooky-mansion/spooky-mansion/node_modules/react-bootstrap/cjs/Col.js:72:8
-        at div
-        at /home/runner/work/spooky-mansion/spooky-mansion/node_modules/react-bootstrap/cjs/Row.js:22:3
-        at div
-        at /home/runner/work/spooky-mansion/spooky-mansion/node_modules/react-bootstrap/cjs/Container.js:24:3
-        at div
-        at MainArea (/home/runner/work/spooky-mansion/spooky-mansion/src/components/MainArea.tsx:9:29)
-        at div
-        at App
-
-      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
-      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
-      at warnAboutUpdateOnUnmountedFiberInDEV (node_modules/react-dom/cjs/react-dom.development.js:23914:9)
-      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:21840:5)
-      at dispatchAction (node_modules/react-dom/cjs/react-dom.development.js:16139:5)
-      at dequeue (node_modules/crt-terminal/dist/cjs/index.js:787:9)
-      at node_modules/crt-terminal/dist/cjs/index.js:1075:21
-
-  console.error
-    Warning: An update to Terminal inside a test was not wrapped in act(...).
-    
-    When testing, code that causes React state updates should be wrapped into act(...):
-    
-    act(() => {
-      /* fire events that update state */
-    });
-    /* assert on the output */
-    
-    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
-        at Terminal (/home/runner/work/spooky-mansion/spooky-mansion/node_modules/crt-terminal/dist/cjs/index.js:1390:24)
-        at MainTerminal (/home/runner/work/spooky-mansion/spooky-mansion/src/components/Terminal.tsx:9:5)
-        at div
-        at /home/runner/work/spooky-mansion/spooky-mansion/node_modules/react-bootstrap/cjs/Col.js:72:8
-        at div
-        at /home/runner/work/spooky-mansion/spooky-mansion/node_modules/react-bootstrap/cjs/Row.js:22:3
-        at div
-        at /home/runner/work/spooky-mansion/spooky-mansion/node_modules/react-bootstrap/cjs/Container.js:24:3
-        at div
-        at MainArea (/home/runner/work/spooky-mansion/spooky-mansion/src/components/MainArea.tsx:9:29)
-        at div
-        at App
-
-      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
-      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
-      at warnIfNotCurrentlyActingUpdatesInDEV (node_modules/react-dom/cjs/react-dom.development.js:24064:9)
-      at dispatchAction (node_modules/react-dom/cjs/react-dom.development.js:16135:9)
-      at nullifyActiveEvent (node_modules/crt-terminal/dist/cjs/index.js:1056:51)
-      at dequeue (node_modules/crt-terminal/dist/cjs/index.js:788:9)
-      at node_modules/crt-terminal/dist/cjs/index.js:1075:21
-
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (144 ms)
+  ● Test suite failed to run
 
-  ● renders the course name somewhere
+    Jest encountered an unexpected token
 
-    TestingLibraryElementError: Unable to find an element with the text: /CISC275/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+    Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
 
-    Ignored nodes: comments, <script />, <style />
-    [36m<body>[39m
-      [36m<div>[39m
-        [36m<div>[39m
-          [36m<div[39m
-            [33mclass[39m=[32m"App"[39m
-          [36m>[39m
-            [36m<div[39m
-              [33mclass[39m=[32m"container"[39m
-            [36m>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"row"[39m
-              [36m>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"col-md-9 col-12"[39m
-                  [33mstyle[39m=[32m"background: black; color: white; display: flex; align-items: center; justify-content: center;"[39m
-                [36m>[39m
-                  [36m<img[39m
-                    [33mclass[39m=[32m"img-fluid"[39m
-                    [33msrc[39m=[32m"/images/outside.png"[39m
-                    [33mstyle[39m=[32m"width: 100%; max-width: 384px; max-height: 384px;"[39m
-                  [36m/>[39m
-                [36m</div>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"col-md-3 col-12"[39m
-                  [33mstyle[39m=[32m"background: rgb(74, 74, 74); color: white;"[39m
-                [36m>[39m
-                  [0mYou are outside. You see a spooky mansion off in the distance.[0m
-                [36m</div>[39m
-              [36m</div>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"row"[39m
-              [36m>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"col-md-9 col-12"[39m
-                  [33mstyle[39m=[32m"height: calc(100vh - 384px);"[39m
-                [36m>[39m
-                  [36m<label[39m
-                    [33mclass[39m=[32m"terminal-module_terminal__4qfYI crt-terminal"[39m
-                    [33mfor[39m=[32m"crt-command-line-input"[39m
-                  [36m>[39m
-                    [36m<div[39m
-                      [33mclass[39m=[32m"overlay-module_overlay__zbWt1 crt-overlay"[39m
-                    [36m>[39m
-                      [36m<div[39m
-                        [33mclass[39m=[32m"overlay-module_scanner__jkhjA crt-scanner"[39m
-                      [36m/>[39m
-                      [36m<div[39m
-                        [33mclass[39m=[32m"overlay-module_pixels__m5X6w crt-pixels"[39m
-                      [36m/>[39m
-                    [36m</div>[39m
-                    [36m<div[39m
-                      [33mclass[39m=[32m"screen-effects-module_screenEffects__bNTzl crt-screen-effects"[39m
-                    [36m>[39m
-                      [36m<div[39m
-                        [33mclass[39m=[32m"terminal-module_overflowContainer__p2duW crt-terminal__overflow-container"[39m
-                      [36m>[39m
-                        [36m<div[39m
-                          [33mclass[39m=[32m"text-effects-module_textEffects__OWNjV crt-text-effects"[39m
-                        [36m>[39m
-                          [36m<div[39m
-                            [33mclass[39m=[32m"crt-terminal__screen"[39m
-                          [36m>[39m
-                            [36m<div[39m
-                              [33mclass[39m=[32m"crt-screen"[39m
-                            [36m>[39m
-                              [36m<div[39m
-                                [33mclass[39m=[32m"printer-line-module_textLine__nz4P- crt-text-line "[39m
-                              [36m>[39m
-                                [36m<span[39m
-                                  [33mclass[39m=[32m"printer-word-module_textWord__akJYx crt-text-word "[39m
-                                [36m>[39m
-                                  [36m<span[39m
-                                    [33mclass[39m=[32m"character-module_character__MzT4w   crt-character"[39m
-                                  [36m>[39m
-                                    [0mWelco[0m
-                                  [36m</span>[39m
-                                [36m</span>[39m
-                              [36m</div>[39m
-                            [36m</div>[39m
-                          [36m</div>[39m
-                          [36m<div[39m
-                            [33mclass[39m=[32m"crt-terminal__command-line"[39m
-                          [36m>[39m
-                            [36m<div[39m
-                              [33mclass[39m=[32m"command-line-module_commandLine__lnMf6 crt-command-line"[39m
-                            [36m>[39m
-                              [36m<span[39m
-                                [33mclass[39m=[32m"crt-command-line__prompt"[39m
-                              [36m>[39m
-                                [0muser@outside&gt; [0m
-                              [36m</span>[39m
-                              [36m<div[39m
-                                [33mclass[39m=[32m"command-line-module_inputWrap__OpY8r crt-command-line__input-wrapper"[39m
-                              [36m>[39m
-                                [36m<input[39m
-                                  [33mclass[39m=[32m"command-line-module_input__ZPwEm crt-command-line__input"[39m
-                                  [33mid[39m=[32m"crt-command-line-input"[39m
-                                  [33mtype[39m=[32m"text"[39m
-                                  [33mvalue[39m=[32m""[39m
-                                [36m/>[39m
-                                [36m<div[39m
-                                  [33mclass[39m=[32m"command-line-module_inputString__J1jZF crt-command-line__input-string"[39m
-                                [36m>[39m
-                                  [36m<span[39m
-                                    [33mclass[39m=[32m"character-module_character__MzT4w character-module_characterSelected__axWlO crt-cursor-symbol crt-character"[39m
-                                  [36m>[39m
-                                    [0m [0m
-                                  [36m</span>[39m
-                                [36m</div>[39m
-                              [36m</div>[39m
-                            [36m</div>[39m
-                          [36m</div>[39m
-                        [36m</div>[39m
-                      [36m</div>[39m
-                    [36m</div>[39m
-                  [36m</label>[39m
-                [36m</div>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"col-md-3"[39m
-                  [33mstyle[39m=[32m"color: white; background: rgb(74, 74, 74);"[39m
-                [36m>[39m
-                  [36m<div>[39m
-                    [0mYou can use the following commands:[0m
-                    [36m<pre>[39m
-                      [0mcd location[0m
-                    [36m</pre>[39m
-                  [36m</div>[39m
-                [36m</div>[39m
-              [36m</div>[39m
-            [36m</div>[39m
-          [36m</div>[39m
-        [36m</div>[39m
-      [36m</div>[39m
-    [36m</body>[39m
+    Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
 
-       5 | test("renders the course name somewhere", () => {
-       6 |     render(<App />);
-    >  7 |     const linkElement = screen.getByText(/CISC275/i);
-         |                                ^
-       8 |     expect(linkElement).toBeInTheDocument();
-       9 | });
-      10 |
+    By default "node_modules" folder is ignored by transformers.
 
-      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
-      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
-      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
-      at getByText (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
-      at Object.<anonymous> (src/App.test.tsx:7:32)
-      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
-      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
-      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
-      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+    Here's what you can do:
+     • If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
+     • If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
+     • To have some of your "node_modules" files transformed, you can specify a custom "transformIgnorePatterns" in your config.
+     • If you need a custom transformation specify a "transform" option in your config.
+     • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the "moduleNameMapper" config option.
+
+    You'll find more details and examples of these config options in the docs:
+    https://jestjs.io/docs/configuration
+    For information about custom transformations, see:
+    https://jestjs.io/docs/code-transformation
+
+    Details:
+
+    /home/runner/work/spooky-mansion/spooky-mansion/node_modules/react-markdown/index.js:6
+    export {uriTransformer} from './lib/uri-transformer.js'
+    ^^^^^^
+
+    SyntaxError: Unexpected token 'export'
+
+       5 | import { Game, INITIAL_GAME, Room, SAVE_GAME_KEY } from "../maps/game";
+       6 | import { getHere } from "./game_logic";
+    >  7 | import ReactMarkdown from "react-markdown";
+         | ^
+       8 |
+       9 | const SAVED_GAME = localStorage.getItem(SAVE_GAME_KEY);
+      10 | let RELOADED_GAME: Game | null = null;
+
+      at Runtime.createScriptFromCode (node_modules/jest-runtime/build/index.js:1728:14)
+      at Object.<anonymous> (src/components/MainArea.tsx:7:1)
 
 -------------------|---------|----------|---------|---------|-------------------
 File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------|---------|----------|---------|---------|-------------------
-All files          |      64 |        0 |   71.42 |      64 |                   
- src               |     100 |      100 |     100 |     100 |                   
-  App.tsx          |     100 |      100 |     100 |     100 |                   
- src/components    |   60.86 |        0 |   66.66 |   60.86 |                   
-  Instructions.tsx |     100 |      100 |     100 |     100 |                   
-  MainArea.tsx     |     100 |      100 |     100 |     100 |                   
+All files          |       0 |        0 |       0 |       0 |                   
+ src               |       0 |      100 |       0 |       0 |                   
+  App.tsx          |       0 |      100 |       0 |       0 | 6                 
+ src/components    |       0 |        0 |       0 |       0 |                   
+  Instructions.tsx |       0 |      100 |       0 |       0 | 3-20              
+  MainArea.tsx     |       0 |        0 |       0 |       0 | 9-31              
   OldTerminal.tsx  |       0 |      100 |     100 |       0 | 75                
-  Terminal.tsx     |    87.5 |      100 |      50 |    87.5 | 20                
-  game_logic.ts    |    12.5 |        0 |      50 |    12.5 | 11-19             
- src/maps          |     100 |      100 |     100 |     100 |                   
-  game.ts          |     100 |      100 |     100 |     100 |                   
+  Terminal.tsx     |       0 |        0 |       0 |       0 | 6-53              
+  game_logic.ts    |       0 |        0 |       0 |       0 | 10-361            
+ src/maps          |       0 |      100 |     100 |       0 |                   
+  game.ts          |       0 |      100 |     100 |       0 | 1-24              
 -------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
-Tests:       1 failed, 1 total
+Tests:       0 total
 Snapshots:   0 total
-Time:        2.425 s
+Time:        2.789 s
 Ran all test suites.
