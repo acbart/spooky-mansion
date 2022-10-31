@@ -1,0 +1,7 @@
+{
+    "outside": {
+        "name": "Outside",
+        "description": "You are outside. You see a spooky mansion off in the distance.",
+        "links": ["house"]
+    }
+}
