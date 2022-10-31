@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import { MainTerminal } from "./Terminal";
 import { Instructions } from "./Instructions";
@@ -24,9 +24,16 @@ export const MainArea = () => {
     const [game, setGame] = useState<Game>(
         RELOADED_GAME == null ? INITIAL_GAME : RELOADED_GAME
     );
+    const [showVideo, setShowVideo] = useState<boolean>(false);
 
     const here: Room = getHere(game);
     const location = here.id;
+
+    useEffect(() => {
+        setShowVideo(
+            game.secrets.includes("skeletons") && location === "crypt"
+        );
+    }, [game]);
 
     return (
         <div className="App">
@@ -43,20 +50,32 @@ export const MainArea = () => {
                             justifyContent: "center"
                         }}
                     >
-                        <Image
-                            src={
-                                process.env.PUBLIC_URL +
-                                "/images/" +
-                                location +
-                                ".png"
-                            }
-                            fluid={true}
-                            style={{
-                                width: "100%",
-                                maxWidth: "384px",
-                                maxHeight: "384px"
-                            }}
-                        />
+                        {showVideo ? (
+                            <iframe
+                                width="384"
+                                height="384"
+                                src="https://www.youtube.com/embed/n_qbGJuxCYY?autoplay=1"
+                                title="Spooky Scary Skeleton Dance Remix"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            ></iframe>
+                        ) : (
+                            <Image
+                                src={
+                                    process.env.PUBLIC_URL +
+                                    "/images/" +
+                                    location +
+                                    ".png"
+                                }
+                                fluid={true}
+                                style={{
+                                    width: "100%",
+                                    maxWidth: "384px",
+                                    maxHeight: "384px"
+                                }}
+                            />
+                        )}
                     </Col>
                     <Col
                         xs={12}

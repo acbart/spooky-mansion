@@ -101,5 +101,74 @@
         "secretLinks": {
             "zombies": "courtyard"
         }
+    },
+    "courtyard": {
+        "name": "Courtyard",
+        "description": [
+            "In the middle of the courtyard, you are amazed to see a gigantic snake! It appears to be drinking a cup of hot, dark liquid. Its teeth are sharp and white as pearls, while its mouth is red like rust or a ruby.",
+            "When it sees you, it speaks slowly and bored, as if reciting an old script.",
+            "  *Hello human. If you wissssh to passss, you must ansssswer the following quessstion:",
+            "  What issss the bessst programming language?*",
+            "What could its scheme be? Well, it is clear you cannot go on until you answer correctly."
+        ],
+        "hint": [
+            "The description gives a lot of conflicting hints.",
+            "But maybe its not any of them?",
+            "I mean, how can you even decide what the \"best\" language is?",
+            "Perhaps there is no right answer..."
+        ],
+        "files": [],
+        "links": ["kitchen"],
+        "secretLinks": {
+            "language": "garden"
+        }
+    },
+    "garden": {
+        "name": "Garden",
+        "description": [
+            "You are nearly blinded as you leave the courtyard for the nearby garden. It takes you a second to see the figure crouched ahead, petting his dog. You are startled by his voice.",
+            "  *\"Oh! I'm glad you made it out! I was worried it was too tough. I hope you had a fun time in my mansion. I had a lot of fun making it. Please come back and visit some time again! Oh, and don't forget your prize.*",
+            "You are delighted to have reached the end of the game, and look forward to a very Happy Halloween now that you are safely out of the mansion.",
+            "Congratulations! You won!"
+        ],
+        "hint": ["No hint. This is the end! Thanks for playing :)"],
+        "files": [
+            {
+                "name": "paper",
+                "contents": [
+                    "What? That's it! That's the game.",
+                    "I already spent too many hours on this instead of actual work.",
+                    "...",
+                    "What, you want more?",
+                    "Okay, one more secret!",
+                    "Go back to the Foyer and then run the following command:",
+                    "    cd crypt"
+                ]
+            }
+        ],
+        "links": ["courtyard"],
+        "secretLinks": {}
+    },
+    "crypt": {
+        "name": "Crypt",
+        "description": [
+            "You enter a foul, decrepit crypt.",
+            "You can tell that something nefarious and evil lives here.",
+            "The only item of interest, though, is a tomb on the other side of the room.",
+            "Will you check the tomb?"
+        ],
+        "hint": ["Try checking the tomb with the less command."],
+        "files": [
+            {
+                "name": "tomb",
+                "contents": [
+                    "SPOOKY SCARY SKELETONS WERE INSIDE!",
+                    "BOO!",
+                    "Okay, that was it. Thanks for playing!"
+                ]
+            }
+        ],
+        "links": ["foyer"],
+        "secretLinks": {}
     }
 }

@@ -60,7 +60,15 @@ export const commandCd = ({
 }: CommandParams): Game | null => {
     const newLocation = args[0].trim().toLowerCase();
     const here = getHere(game);
-    if (newLocation === "..") {
+    if (here.id === "house" && newLocation === "crypt") {
+        print([
+            "Why yes, there appears to be a secret passage here downstairs to the crypt!"
+        ]);
+        return {
+            ...game,
+            location: "crypt"
+        };
+    } else if (newLocation === "..") {
         return {
             ...game,
             location: here.links[0]
@@ -123,7 +131,11 @@ export const commandLs = ({
     return null;
 };
 
-export const commandRead = ({ game, print, args }: CommandParams): null => {
+export const commandRead = ({
+    game,
+    print,
+    args
+}: CommandParams): Game | null => {
     const what = args.join(" ").trim().toLowerCase();
     const here = getHere(game);
     if (here.links.includes(what)) {
@@ -135,6 +147,9 @@ export const commandRead = ({ game, print, args }: CommandParams): null => {
         const item = here.files.find((item) => item.name === what);
         if (item) {
             print(item.contents);
+            if (item.name === "tomb") {
+                return { ...game, secrets: [...game.secrets, "skeletons"] };
+            }
         } else {
             print(`You do not see any ${what} here.`);
         }
@@ -230,6 +245,69 @@ export const commandKill = (params: CommandParams): Game | null => {
             "Ahead of them, you can see a path out to the courtyard."
         ]);
         return { ...params.game, secrets: [...params.game.secrets, "zombies"] };
+    } else if (here.id === "courtyard") {
+        params.print([
+            "Hah! You couldn't kill that snake if you tried.",
+            "It would definitely gobble you up!",
+            "You better just focus on answering its question."
+        ]);
+        return null;
+    } else {
+        return deniedCommand(params);
+    }
+};
+
+export const commandWrongLanguage = (params: CommandParams): null => {
+    const here = getHere(params.game);
+    if (here.id === "courtyard") {
+        if (params.command === "python") {
+            params.print([
+                "Wow, ssseriousssly? Did you sssay Python?",
+                "Jussst becausssse I'm a sssnake?",
+                "Python doesssn't even have good lambda functionsss.",
+                "What a joke.",
+                "Think of a better anssswer."
+            ]);
+        } else if (params.command === "java") {
+            params.print([
+                "I love coffee, but I don't love Java.",
+                "Who could sssay that Java is the bessst?",
+                "Try again."
+            ]);
+        } else {
+            params.print(
+                randomItem([
+                    [
+                        "No no, that language issss terrible.",
+                        "Pick a different anssswer."
+                    ],
+                    [`${params.command}? No, that makes no sssenssse.`],
+                    [`Who would say ${params.command}?`, "Not me."]
+                ])
+            );
+        }
+        return null;
+    } else {
+        return deniedCommand(params);
+    }
+};
+
+export const commandNoneAll = (params: CommandParams): Game | null => {
+    const here = getHere(params.game);
+    if (here.id === "courtyard") {
+        params.print([
+            "The snake smiles (somehow) and nods its head.",
+            '  "Yessss, thisss isss true wisdom!',
+            "    No language isss bessst, no language isss worssst.",
+            '    You may go on, brave traveller. The end is nigh."',
+            "What a weird, opinionated snake. You're not sure you agree with it entirely.",
+            "Nonetheless, you see the path unfold into the garden.",
+            "That appears to be the way out!"
+        ]);
+        return {
+            ...params.game,
+            secrets: [...params.game.secrets, "language"]
+        };
     } else {
         return deniedCommand(params);
     }
@@ -324,7 +402,31 @@ const commandMap: Record<string, (c: CommandParams) => Game | null> = {
     // Kitchen Zombies
     kill: commandKill,
     pkill: commandKill,
-    rm: commandRm
+    rm: commandRm,
+    // PL Snake
+    python: commandWrongLanguage,
+    perl: commandWrongLanguage,
+    java: commandWrongLanguage,
+    javascript: commandWrongLanguage,
+    typescript: commandWrongLanguage,
+    dart: commandWrongLanguage,
+    racket: commandWrongLanguage,
+    scheme: commandWrongLanguage,
+    ruby: commandWrongLanguage,
+    rust: commandWrongLanguage,
+    c: commandWrongLanguage,
+    cpp: commandWrongLanguage,
+    csharp: commandWrongLanguage,
+    go: commandWrongLanguage,
+    pascal: commandWrongLanguage,
+    scratch: commandWrongLanguage,
+    snap: commandWrongLanguage,
+    // Good snake answers
+    none: commandNoneAll,
+    no: commandNoneAll,
+    all: commandNoneAll,
+    any: commandNoneAll,
+    every: commandNoneAll
 };
 
 export function gameLogic(
