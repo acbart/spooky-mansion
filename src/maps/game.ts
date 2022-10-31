@@ -6,6 +6,7 @@ export interface Game {
     history: string[];
     path: string[];
     secrets: string[];
+    music: boolean;
 }
 
 export const INITIAL_GAME = {
@@ -13,7 +14,8 @@ export const INITIAL_GAME = {
     location: "outside",
     history: [],
     path: ["outside"],
-    secrets: []
+    secrets: [],
+    music: true
 };
 
 export interface GameFile {

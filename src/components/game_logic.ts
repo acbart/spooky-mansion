@@ -334,6 +334,23 @@ export const commandClear = ({ clear }: CommandParams): null => {
     return null;
 };
 
+export const commandMusic = ({ game, print }: CommandParams): null | Game => {
+    const musicPlayer = document.getElementById(
+        "musicplayer"
+    ) as HTMLAudioElement;
+    if (musicPlayer === null) {
+        print([
+            "The audio system appears to be broken. Reload the page, please!"
+        ]);
+        return null;
+    }
+    if (musicPlayer.paused || musicPlayer.currentTime === 0) {
+        return { ...game, music: true };
+    } else {
+        return { ...game, music: false };
+    }
+};
+
 export const commandHistory = ({ game, print }: CommandParams): null => {
     print([
         "You recall what you have already done...",
@@ -381,6 +398,7 @@ const commandMap: Record<string, (c: CommandParams) => Game | null> = {
     echo: commandEcho,
     cls: commandClear,
     clear: commandClear,
+    music: commandMusic,
     history: commandHistory,
     man: commandMan,
     emacs: deniedCommand,

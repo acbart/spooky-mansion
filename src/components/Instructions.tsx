@@ -7,6 +7,7 @@ const INSTRUCTIONS: string[][] = [
     ["su", "username", "Change your name"],
     ["history", "View previously run commands"],
     ["hint", "Ask for a hint"],
+    ["music", "Enable or disable the music"],
     ["clear", "Clear the console"],
     ["reset", "Reset the game"]
 ];
@@ -25,6 +26,7 @@ export function Instructions(): JSX.Element {
                     </pre>
                 );
             })}
+            There are also other secret commands in some rooms!
         </div>
     );
 }

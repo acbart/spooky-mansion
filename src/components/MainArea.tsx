@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col, Image } from "react-bootstrap";
+import { Container, Row, Col, Image, Button } from "react-bootstrap";
 import { MainTerminal } from "./Terminal";
 import { Instructions } from "./Instructions";
 import { Game, INITIAL_GAME, Room, SAVE_GAME_KEY } from "../maps/game";
@@ -30,10 +30,32 @@ export const MainArea = () => {
     const location = here.id;
 
     useEffect(() => {
-        setShowVideo(
-            game.secrets.includes("skeletons") && location === "crypt"
-        );
+        const musicPlayer = document.getElementById(
+            "musicplayer"
+        ) as HTMLAudioElement;
+        const shouldPlay =
+            game.secrets.includes("skeletons") && location === "crypt";
+        setShowVideo(shouldPlay);
+        if (shouldPlay && musicPlayer != null) {
+            musicPlayer.pause();
+            setGame({ ...game, music: false });
+        }
     }, [game]);
+
+    useEffect(() => {
+        const musicPlayer = document.getElementById(
+            "musicplayer"
+        ) as HTMLAudioElement;
+        if (musicPlayer != null) {
+            if (game.music) {
+                musicPlayer.play();
+            } else {
+                musicPlayer.pause();
+            }
+        } else {
+            setGame({ ...game, music: false });
+        }
+    }, [game.music]);
 
     return (
         <div className="App">
@@ -86,6 +108,15 @@ export const MainArea = () => {
                         <ReactMarkdown>
                             {here.description.join("\n\n")}
                         </ReactMarkdown>
+                        <Button
+                            variant="secondary"
+                            size="sm"
+                            onClick={() =>
+                                setGame({ ...game, music: !game.music })
+                            }
+                        >
+                            {game.music ? "Mute Music" : "Play Music"}
+                        </Button>
                     </Col>
                 </Row>
                 <Row>
