@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/homepage/static/css/main.527e26ea.css",
-    "main.js": "/homepage/static/js/main.41090755.js",
-    "static/js/787.4ef7427d.chunk.js": "/homepage/static/js/787.4ef7427d.chunk.js",
-    "index.html": "/homepage/index.html",
-    "main.527e26ea.css.map": "/homepage/static/css/main.527e26ea.css.map",
-    "main.41090755.js.map": "/homepage/static/js/main.41090755.js.map",
-    "787.4ef7427d.chunk.js.map": "/homepage/static/js/787.4ef7427d.chunk.js.map"
+    "main.css": "/spooky-mansion/static/css/main.527e26ea.css",
+    "main.js": "/spooky-mansion/static/js/main.b7489b17.js",
+    "static/js/787.4ef7427d.chunk.js": "/spooky-mansion/static/js/787.4ef7427d.chunk.js",
+    "index.html": "/spooky-mansion/index.html",
+    "main.527e26ea.css.map": "/spooky-mansion/static/css/main.527e26ea.css.map",
+    "main.b7489b17.js.map": "/spooky-mansion/static/js/main.b7489b17.js.map",
+    "787.4ef7427d.chunk.js.map": "/spooky-mansion/static/js/787.4ef7427d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.527e26ea.css",
-    "static/js/main.41090755.js"
+    "static/js/main.b7489b17.js"
   ]
 }
