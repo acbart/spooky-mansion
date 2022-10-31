@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/spooky-mansion/static/css/main.d53a38f8.css",
-    "main.js": "/spooky-mansion/static/js/main.0c4ce04c.js",
-    "static/js/787.4ef7427d.chunk.js": "/spooky-mansion/static/js/787.4ef7427d.chunk.js",
-    "index.html": "/spooky-mansion/index.html",
-    "main.d53a38f8.css.map": "/spooky-mansion/static/css/main.d53a38f8.css.map",
-    "main.0c4ce04c.js.map": "/spooky-mansion/static/js/main.0c4ce04c.js.map",
-    "787.4ef7427d.chunk.js.map": "/spooky-mansion/static/js/787.4ef7427d.chunk.js.map"
+    "main.css": "/homepage/static/css/main.d4893fc1.css",
+    "main.js": "/homepage/static/js/main.9e4e6f14.js",
+    "static/js/787.4ef7427d.chunk.js": "/homepage/static/js/787.4ef7427d.chunk.js",
+    "index.html": "/homepage/index.html",
+    "main.d4893fc1.css.map": "/homepage/static/css/main.d4893fc1.css.map",
+    "main.9e4e6f14.js.map": "/homepage/static/js/main.9e4e6f14.js.map",
+    "787.4ef7427d.chunk.js.map": "/homepage/static/js/787.4ef7427d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d53a38f8.css",
-    "static/js/main.0c4ce04c.js"
+    "static/css/main.d4893fc1.css",
+    "static/js/main.9e4e6f14.js"
   ]
 }
