@@ -44,6 +44,7 @@ export const MainArea = () => {
 
     const here: Room = getHere(game);
     const location = here.id;
+    const inGarden = location === "garden";
 
     useEffect(() => {
         const musicPlayer = document.getElementById(
@@ -123,6 +124,20 @@ export const MainArea = () => {
                         style={{ background: "rgb(34,34,34)", color: "white" }}
                     >
                         <h3>{here.name}</h3>
+                        {inGarden && (
+                            <>
+                                <a
+                                    target="_blank"
+                                    href={
+                                        process.env.PUBLIC_URL +
+                                        "/images/prize.png"
+                                    }
+                                    rel="noreferrer"
+                                >
+                                    Get QR Code
+                                </a>
+                            </>
+                        )}
                         <ReactMarkdown>
                             {here.description.join("\n\n")}
                         </ReactMarkdown>
@@ -147,6 +162,7 @@ export const MainArea = () => {
                 </Row>
                 <Row>
                     <Col
+                        className="terminal-area"
                         xs={12}
                         md={9}
                         style={{ height: "calc(100vh - 384px)" }}
