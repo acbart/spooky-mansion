@@ -74,8 +74,11 @@
             height: 100%;
         }
 
-        .react-terminal {
-            height: calc(100vh - 384px - 80px);
+        @media screen and (min-width: 500px) and (min-height: 600px) {
+            .terminal-area,
+            .react-terminal {
+                height: calc(100vh - 384px - 40px);
+            }
         }
     </style>
 </html>
