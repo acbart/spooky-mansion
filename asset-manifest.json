@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/spooky-mansion/static/css/main.d4893fc1.css",
+    "main.css": "/spooky-mansion/static/css/main.fb35d48d.css",
     "main.js": "/spooky-mansion/static/js/main.170503dd.js",
     "static/js/787.4ef7427d.chunk.js": "/spooky-mansion/static/js/787.4ef7427d.chunk.js",
     "index.html": "/spooky-mansion/index.html",
-    "main.d4893fc1.css.map": "/spooky-mansion/static/css/main.d4893fc1.css.map",
+    "main.fb35d48d.css.map": "/spooky-mansion/static/css/main.fb35d48d.css.map",
     "main.170503dd.js.map": "/spooky-mansion/static/js/main.170503dd.js.map",
     "787.4ef7427d.chunk.js.map": "/spooky-mansion/static/js/787.4ef7427d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d4893fc1.css",
+    "static/css/main.fb35d48d.css",
     "static/js/main.170503dd.js"
   ]
 }
