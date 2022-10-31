@@ -48,7 +48,9 @@ export const MainArea = () => {
         ) as HTMLAudioElement;
         if (musicPlayer != null) {
             if (game.music) {
-                musicPlayer.play();
+                musicPlayer
+                    .play()
+                    .catch(() => setGame({ ...game, music: false }));
             } else {
                 musicPlayer.pause();
             }
