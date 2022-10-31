@@ -1,7 +1,34 @@
 {
     "outside": {
-        "name": "Outside",
-        "description": "You are outside. You see a spooky mansion off in the distance.",
+        "name": "Outside the House",
+        "description": [
+            "You are outside. You see a spooky mansion off in the distance.",
+            "The moon is just starting to rise."
+        ],
+        "hint": [
+            "Not much to do out here other than to enter the house.\nUse the cd command to move."
+        ],
+        "files": [
+            {
+                "name": "paper",
+                "contents": [
+                    "You see a piece of paper lying on the ground.",
+                    "You pick up the paper and read the following message:",
+                    "  Welcome to my spooky mansion game!",
+                    "  I hope you have a fun time.",
+                    "  Never stop coding, and have a Happy Halloween!",
+                    "  - Dr. Bart",
+                    "You put the paper back on the ground for the next person."
+                ]
+            }
+        ],
         "links": ["house"]
+    },
+    "house": {
+        "name": "Inside the House",
+        "description": ["You are inside the Foyer of the house. You see a "],
+        "hint": ["Not much to do here, other than to cd into the next room."],
+        "files": [],
+        "links": []
     }
 }

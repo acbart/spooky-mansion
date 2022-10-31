@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import { MainTerminal } from "./Terminal";
-import houseMap from "../maps/house.json";
 import { Instructions } from "./Instructions";
-import { Game, INITIAL_GAME, Room } from "../maps/game";
+import { Game, INITIAL_GAME, MYSTERY_ROOM, Room } from "../maps/game";
+import { houseMap } from "./game_logic";
 
 export const MainArea = () => {
     const [game, setGame] = useState<Game>(INITIAL_GAME);
 
-    const house = houseMap as Record<string, Room>;
-    const description = house[game.location].description;
+    const here: Room =
+        game.location in houseMap ? houseMap[game.location] : MYSTERY_ROOM;
+    const location = game.location in houseMap ? game.location : "backrooms";
 
     return (
         <div className="App">
@@ -30,7 +31,7 @@ export const MainArea = () => {
                             src={
                                 process.env.PUBLIC_URL +
                                 "/images/" +
-                                game.location +
+                                location +
                                 ".png"
                             }
                             fluid={true}
@@ -44,9 +45,12 @@ export const MainArea = () => {
                     <Col
                         xs={12}
                         md={3}
-                        style={{ background: "rgb(74,74,74)", color: "white" }}
+                        style={{ background: "rgb(34,34,34)", color: "white" }}
                     >
-                        {description}
+                        <h3>{here.name}</h3>
+                        {here.description.map((line, index) => (
+                            <div key={index}>{line}</div>
+                        ))}
                     </Col>
                 </Row>
                 <Row>
@@ -62,7 +66,7 @@ export const MainArea = () => {
                     </Col>
                     <Col
                         md={3}
-                        style={{ color: "white", background: "rgb(74,74,74)" }}
+                        style={{ color: "white", background: "rgb(34,34,34)" }}
                     >
                         <Instructions></Instructions>
                     </Col>

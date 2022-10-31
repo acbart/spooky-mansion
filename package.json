@@ -12,6 +12,7 @@
         "@types/react": "^17.0.38",
         "@types/react-dom": "^17.0.11",
         "crt-terminal": "^1.0.12",
+        "immer": "^9.0.16",
         "javascript-terminal": "^1.1.1",
         "react": "^17.0.2",
         "react-bootstrap": "^2.1.1",

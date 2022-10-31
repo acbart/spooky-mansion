@@ -2,3 +2,12 @@
     padding-top: 0px;
     padding-bottom: 0px;
 }
+
+.instructions pre code {
+    font-weight: bolder;
+    color: pink;
+}
+
+.instructions pre {
+    margin-bottom: 4px;
+}
