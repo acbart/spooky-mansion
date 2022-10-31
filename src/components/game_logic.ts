@@ -69,15 +69,18 @@ export const commandCd = ({
             location: "crypt"
         };
     } else if (newLocation === "..") {
+        print([`Moved to ${here.links[0]}`]);
         return {
             ...game,
             location: here.links[0]
         };
     } else if (newLocation === ".") {
+        print([`Stayed in ${here.id}`]);
         return null;
     } else if (newLocation === game.location || newLocation === here.id) {
         print([`You are already in the ${newLocation}.`]);
     } else if (here.links.includes(newLocation)) {
+        print([`Moved to ${newLocation}`]);
         return {
             ...game,
             location: newLocation
@@ -87,6 +90,7 @@ export const commandCd = ({
             (secret: string) => secret in here.secretLinks
         );
         if (secret !== undefined) {
+            print([`Moved to ${here.secretLinks[secret]}!`]);
             return {
                 ...game,
                 location: here.secretLinks[secret]
@@ -345,8 +349,10 @@ export const commandMusic = ({ game, print }: CommandParams): null | Game => {
         return null;
     }
     if (musicPlayer.paused || musicPlayer.currentTime === 0) {
+        print("Starting music");
         return { ...game, music: true };
     } else {
+        print("Stopping music");
         return { ...game, music: false };
     }
 };
@@ -385,7 +391,7 @@ export const deniedCommand = ({ print, command }: CommandParams): null => {
     return null;
 };
 
-const commandMap: Record<string, (c: CommandParams) => Game | null> = {
+export const commandMap: Record<string, (c: CommandParams) => Game | null> = {
     cd: commandCd,
     ls: commandLs,
     dir: commandLs,
@@ -447,13 +453,35 @@ const commandMap: Record<string, (c: CommandParams) => Game | null> = {
     every: commandNoneAll
 };
 
+function addPromptEcho(
+    printFunction: (payload: string | string[]) => void,
+    fullInput: string,
+    echoPrompt: string | undefined
+) {
+    if (echoPrompt) {
+        return (payload: string | string[]) => {
+            let lines: string[];
+            if (typeof payload === "string") {
+                lines = [echoPrompt + "  " + fullInput, payload];
+            } else {
+                lines = [echoPrompt + "  " + fullInput, ...payload];
+            }
+            return printFunction(lines);
+        };
+    } else {
+        return printFunction;
+    }
+}
+
 export function gameLogic(
     game: Game,
     setGame: (game: Game) => void,
     print: (payload: string | string[]) => void,
-    clear: () => void
+    clear: () => void,
+    echoPrompt?: string
 ): ProcessCommand {
     return function processCommand(fullInput: string) {
+        print = addPromptEcho(print, fullInput, echoPrompt);
         const [command, ...args] = fullInput.toLowerCase().split(" ");
         let nextState: Game | null;
         if (command in commandMap) {

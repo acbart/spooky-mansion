@@ -5,6 +5,7 @@ import { Instructions } from "./Instructions";
 import { Game, INITIAL_GAME, Room, SAVE_GAME_KEY } from "../maps/game";
 import { getHere } from "./game_logic";
 import ReactMarkdown from "react-markdown";
+import { AltTerminal } from "./AltTerminal";
 
 const SAVED_GAME = localStorage.getItem(SAVE_GAME_KEY);
 let RELOADED_GAME: Game | null = null;
@@ -20,11 +21,26 @@ if (SAVED_GAME != null) {
     }
 }
 
+function isMobile(): boolean {
+    //if ("maxTouchPoints" in navigator) return navigator.maxTouchPoints > 0;
+
+    const mQ = matchMedia?.("(pointer:coarse)");
+    if (mQ?.media === "(pointer:coarse)") return !!mQ.matches;
+
+    if ("orientation" in window) return true;
+
+    return (
+        /\b(BlackBerry|webOS|iPhone|IEMobile)\b/i.test(navigator.userAgent) ||
+        /\b(Android|Windows Phone|iPad|iPod)\b/i.test(navigator.userAgent)
+    );
+}
+
 export const MainArea = () => {
     const [game, setGame] = useState<Game>(
         RELOADED_GAME == null ? INITIAL_GAME : RELOADED_GAME
     );
     const [showVideo, setShowVideo] = useState<boolean>(false);
+    const [useAltTerminal, setUseAltTerminal] = useState<boolean>(isMobile());
 
     const here: Room = getHere(game);
     const location = here.id;
@@ -38,7 +54,7 @@ export const MainArea = () => {
         setShowVideo(shouldPlay);
         if (shouldPlay && musicPlayer != null) {
             musicPlayer.pause();
-            setGame({ ...game, music: false });
+            //setGame({ ...game, music: false });
         }
     }, [game]);
 
@@ -119,6 +135,14 @@ export const MainArea = () => {
                         >
                             {game.music ? "Mute Music" : "Play Music"}
                         </Button>
+                        <Button
+                            className="ps-2"
+                            variant="secondary"
+                            size="sm"
+                            onClick={() => setUseAltTerminal(!useAltTerminal)}
+                        >
+                            {useAltTerminal ? "Terminal" : "Alt Terminal"}
+                        </Button>
                     </Col>
                 </Row>
                 <Row>
@@ -127,11 +151,19 @@ export const MainArea = () => {
                         md={9}
                         style={{ height: "calc(100vh - 384px)" }}
                     >
-                        <MainTerminal
-                            game={game}
-                            setGame={setGame}
-                            corrupted={WAS_GAME_CORRUPTED}
-                        ></MainTerminal>
+                        {useAltTerminal ? (
+                            <AltTerminal
+                                game={game}
+                                setGame={setGame}
+                                corrupted={WAS_GAME_CORRUPTED}
+                            ></AltTerminal>
+                        ) : (
+                            <MainTerminal
+                                game={game}
+                                setGame={setGame}
+                                corrupted={WAS_GAME_CORRUPTED}
+                            ></MainTerminal>
+                        )}
                     </Col>
                     <Col
                         md={3}

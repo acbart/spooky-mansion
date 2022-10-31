@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect } from "react";
 import { Terminal, useEventQueue, textLine, textWord } from "crt-terminal";
+import AltTerminal from "terminal-in-react";
 import { Game } from "../maps/game";
 import { gameLogic } from "./game_logic";
 
