@@ -454,7 +454,7 @@ export function gameLogic(
     clear: () => void
 ): ProcessCommand {
     return function processCommand(fullInput: string) {
-        const [command, ...args] = fullInput.split(" ");
+        const [command, ...args] = fullInput.toLowerCase().split(" ");
         let nextState: Game | null;
         if (command in commandMap) {
             const commandFunction = commandMap[command];
