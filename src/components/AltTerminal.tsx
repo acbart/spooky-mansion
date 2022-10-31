@@ -1,11 +1,8 @@
-import React, { useState, useCallback, useEffect, useMemo } from "react";
-import AltTerminalInternal, {
-    ColorMode,
-    TerminalOutput
-} from "react-terminal-ui";
+import React, { useState, useCallback, useEffect } from "react";
+import AltTerminalInternal, { TerminalOutput } from "react-terminal-ui";
 
 import { Game } from "../maps/game";
-import { commandMap, CommandParams, gameLogic } from "./game_logic";
+import { gameLogic } from "./game_logic";
 
 const bannerText = "Welcome...";
 
