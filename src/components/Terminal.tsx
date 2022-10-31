@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import { Terminal, useEventQueue, textLine, textWord } from "crt-terminal";
 import { Game } from "../maps/game";
 import { gameLogic } from "./game_logic";
@@ -7,10 +7,12 @@ const bannerText = "Welcome...";
 
 export const MainTerminal = ({
     game,
-    setGame
+    setGame,
+    corrupted
 }: {
     game: Game;
     setGame: (game: Game) => void;
+    corrupted: boolean;
 }) => {
     const eventQueue = useEventQueue();
     const { print, clear } = eventQueue.handlers;
@@ -39,13 +41,28 @@ export const MainTerminal = ({
         [game, setGame, printLines, clear]
     );
 
+    useEffect(() => {
+        if (corrupted) {
+            printLines([
+                "Your previous game save was corrupted, unfortunately.",
+                "Please report this error to Dr. Bart"
+            ]);
+        }
+    }, [corrupted]);
+
     return (
         <Terminal
             prompt={`${game.username}@${game.location}> `}
             queue={eventQueue}
             banner={[
                 textLine({
-                    words: [textWord({ characters: bannerText })]
+                    words: [
+                        textWord({
+                            characters: game.history.length
+                                ? "Welcome back..."
+                                : bannerText
+                        })
+                    ]
                 })
             ]}
             onCommand={processCommand}

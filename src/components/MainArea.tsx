@@ -2,15 +2,31 @@ import React, { useState } from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import { MainTerminal } from "./Terminal";
 import { Instructions } from "./Instructions";
-import { Game, INITIAL_GAME, MYSTERY_ROOM, Room } from "../maps/game";
-import { houseMap } from "./game_logic";
+import { Game, INITIAL_GAME, Room, SAVE_GAME_KEY } from "../maps/game";
+import { getHere } from "./game_logic";
+import ReactMarkdown from "react-markdown";
+
+const SAVED_GAME = localStorage.getItem(SAVE_GAME_KEY);
+let RELOADED_GAME: Game | null = null;
+let WAS_GAME_CORRUPTED = false;
+if (SAVED_GAME != null) {
+    try {
+        RELOADED_GAME = JSON.parse(SAVED_GAME);
+    } catch (e) {
+        console.error(e);
+        console.log("Old game save data:", SAVED_GAME);
+        RELOADED_GAME = null;
+        WAS_GAME_CORRUPTED = true;
+    }
+}
 
 export const MainArea = () => {
-    const [game, setGame] = useState<Game>(INITIAL_GAME);
+    const [game, setGame] = useState<Game>(
+        RELOADED_GAME == null ? INITIAL_GAME : RELOADED_GAME
+    );
 
-    const here: Room =
-        game.location in houseMap ? houseMap[game.location] : MYSTERY_ROOM;
-    const location = game.location in houseMap ? game.location : "backrooms";
+    const here: Room = getHere(game);
+    const location = here.id;
 
     return (
         <div className="App">
@@ -48,9 +64,9 @@ export const MainArea = () => {
                         style={{ background: "rgb(34,34,34)", color: "white" }}
                     >
                         <h3>{here.name}</h3>
-                        {here.description.map((line, index) => (
-                            <div key={index}>{line}</div>
-                        ))}
+                        <ReactMarkdown>
+                            {here.description.join("\n\n")}
+                        </ReactMarkdown>
                     </Col>
                 </Row>
                 <Row>
@@ -62,6 +78,7 @@ export const MainArea = () => {
                         <MainTerminal
                             game={game}
                             setGame={setGame}
+                            corrupted={WAS_GAME_CORRUPTED}
                         ></MainTerminal>
                     </Col>
                     <Col

@@ -22,13 +22,84 @@
                 ]
             }
         ],
+        "secretLinks": {},
         "links": ["house"]
     },
+    "foyer": "house",
     "house": {
         "name": "Inside the House",
-        "description": ["You are inside the Foyer of the house. You see a "],
+        "description": [
+            "You are inside the Foyer of the house. You see a single door ahead of you. Cobwebs litter the house."
+        ],
         "hint": ["Not much to do here, other than to cd into the next room."],
         "files": [],
-        "links": []
+        "secretLinks": {},
+        "links": ["outside", "library"]
+    },
+    "library": {
+        "name": "Library",
+        "description": [
+            "You enter into a surprisingly warm and cozy library.",
+            "Curled up on a nearby chair is a fat cat.",
+            "On the floor nearby is a book.",
+            "You don't really anywhere else to go, though."
+        ],
+        "hint": ["The cat might know how to read the book.\n cat book"],
+        "files": [
+            {
+                "name": "book",
+                "contents": [
+                    "You attempt to read the book, but alas it is unreadable.",
+                    "In fact, it just appears to say 'MEOW' over and over again.",
+                    "    MEOW MEOW MEOW MEOW MEOW",
+                    "    MEOW MEOW MEOW MEOW.",
+                    "    MEOW MEOW MEOW, MEOW MEOW",
+                    "    MEOW MEOW MEOW",
+                    "    ...",
+                    "If only someone could help you translate the mysterious language."
+                ]
+            }
+        ],
+        "secretLinks": {
+            "catted": "hallway"
+        },
+        "links": ["foyer"]
+    },
+    "hallway": {
+        "name": "Hallway",
+        "description": [
+            "You enter a stately hallway lit by candles. Before you stands a man with a deathly pallor and long, pointed teeth. He grins maliciously and says with a thick accent:",
+            "*\"I wouldn't mind a bit of a bite, or at least **half a bite**. In other words, do you know what I am looking for?\"*",
+            "He clearly wants you to say something. Perhaps there is a word you can type that will satisfy him?"
+        ],
+        "hint": [
+            "When you talk to the vampire, he asks you what half a bite (byte) is.",
+            "If you don't know, ask Google.",
+            "Then, enter that as the prompt."
+        ],
+        "files": [],
+        "links": ["library"],
+        "secretLinks": {
+            "nibble": "kitchen"
+        }
+    },
+    "kitchen": {
+        "name": "Kitchen",
+        "description": [
+            "In the kitchen, there appears to be a bunch of zombie (processes)!",
+            "Although they aren't moving around very much, they are blocking your path.",
+            "You need to thin the herd somehow."
+        ],
+        "hint": [
+            "Zombie processes are stray programs that are not easily stopped.",
+            "The linux command to dispose of them is quite gruesome, though.",
+            "Simply use the following command and they'll go away:",
+            "    kill"
+        ],
+        "files": [],
+        "links": ["hallway"],
+        "secretLinks": {
+            "zombies": "courtyard"
+        }
     }
 }
