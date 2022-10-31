@@ -105,10 +105,8 @@
     "courtyard": {
         "name": "Courtyard",
         "description": [
-            "In the middle of the courtyard, you are amazed to see a gigantic snake! It appears to be drinking a cup of hot, dark liquid. Its teeth are sharp and white as pearls, while its mouth is red like rust or a ruby.",
-            "When it sees you, it speaks slowly and bored, as if reciting an old script.",
-            "  *Hello human. If you wissssh to passss, you must ansssswer the following quessstion:",
-            "  What issss the bessst programming language?*",
+            "In the middle of the courtyard, you see a gigantic snake! It has a cup of hot, dark liquid. Its teeth are sharp and pearly, while its mouth is a rusty, ruby red. When it sees you, it speaks as if reciting an old script.",
+            "  *Hello human. If you wissssh to passss, you must ansssswer the following quessstion: What issss the bessst programming language?*",
             "What could its scheme be? Well, it is clear you cannot go on until you answer correctly."
         ],
         "hint": [
